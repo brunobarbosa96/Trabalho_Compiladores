@@ -1,0 +1,14 @@
+1 Falta 'programa'
+2 Falta um identificador
+3 Falta ';'
+4 Falta '.'
+5 Falta ':'
+6 Falta 'inteiro' ou 'real'
+7 Falta 'inicio'
+8 Falta 'fim'
+9 Falta '='
+10 Falta '('
+11 Falta ')'
+12 Falta 'senao'
+13 Falta identificador, número ou (expressão)
+14 Falta operador de comparação

@@ -1,0 +1,7 @@
+programa teste2;
+var a, b: real;
+inicio
+	a = 10;
+	b = a * 5.5 - (a / 2 + a);
+	escrever(a);
+fim.

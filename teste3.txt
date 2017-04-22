@@ -1,0 +1,18 @@
+programa teste2;
+var a, b: real;
+var x, y: inteiro;
+inicio
+	a = 10;
+	ler(b);
+	se (b >= 0) entao
+	inicio
+		b = a * 5.5 - (a / 2 + a);
+		escrever(a, b);
+	fim
+	senao
+	inicio
+		ler(x);
+		y = x * 2 + 5;
+		escrever(x, y);
+	fim;
+fim.
