@@ -31,18 +31,18 @@ void programa();
 void corpo();
 void declaracao();
 void variaveis();
-void mais-variaveis();
+void mais_variaveis();
 void tipo();
 void bloco();
 void comandos();
 void senao();
 void condicao();
 void expressao();
-void mais-expressao();
+void mais_expressao();
 void termo();
-void mais-termo();
+void mais_termo();
 void fator();
-void operador-rel();
+void operador_rel();
 
 main()
 {
@@ -145,11 +145,11 @@ void declaracao()
 	{
 		proximo_token();
 		variaveis();
-		if (strcmp(lexema, ":") ==0)
+		if (strcmp(lexema, ":") == 0)
 		{
 			proximo_token();
 			tipo();
-			if (strcmp(lexema, ";"))
+			if (strcmp(lexema, ";") == 0)
 			{
 				proximo_token();
 				declaracao();
@@ -167,13 +167,13 @@ void variaveis()
 	if (token == 1)
 	{
 		proximo_token();
-		mais-variaveis();
+		mais_variaveis();
 	}
 	else 
 		erro(2); // Falta um identificador
 }
 
-void mais-variaveis()
+void mais_variaveis()
 {
 	if (strcmp(lexema, ",") == 0)
 	{
@@ -196,7 +196,7 @@ void bloco()
 	{
 		proximo_token();
 		comandos();
-		if (strcmp(lexema, "fim") ==0)
+		if (strcmp(lexema, "fim") == 0)
 			proximo_token();
 		else
 			erro(8); // Falta fim
@@ -207,25 +207,7 @@ void bloco()
 
 void comandos()
 {
-	if (token == 1)
-	{
-		proximo_token();
-		if (strcmp(lexema, "=") == 0)
-		{
-			proximo_token();
-			expressao();
-			if (strcmp(lexema, ";") == 0)
-			{
-				proximo_token();
-				comandos();
-			}
-			else
-				erro(3); // Falta ;
-		}
-		else 
-			erro(9); // Falta = 
-	}
-	else if (strcmp(lexema, "se") == 0)
+	if (strcmp(lexema, "se") == 0)
 	{
 		proximo_token();
 		if (strcmp(lexema, "(") == 0)
@@ -306,6 +288,24 @@ void comandos()
 		else
 			erro(10); // Falta ()
 	}
+	else if (token == 1)
+	{
+		proximo_token();
+		if (strcmp(lexema, "=") == 0)
+		{
+			proximo_token();
+			expressao();
+			if (strcmp(lexema, ";") == 0)
+			{
+				proximo_token();
+				comandos();
+			}
+			else
+				erro(3); // Falta ; 
+		}
+		else 
+			erro(9); // Falta = 
+	}
 }
 
 void senao()
@@ -319,18 +319,18 @@ void senao()
 
 void condicao()
 {
-	expessao();
-	opretador-rel();
+	expressao();
+	operador_rel();
 	expressao();
 }
 
 void expressao()
 {
 	termo();
-	mais-expressao();
+	mais_expressao();
 }
 
-void mais-expressao()
+void mais_expressao()
 {
 	if (token == 3) // operador + ou -
 	{
@@ -342,10 +342,10 @@ void mais-expressao()
 void termo()
 {
 	fator();
-	mais-termo();
+	mais_termo();
 }
 
-void mais-termo()
+void mais_termo()
 {
 	if (token == 4) // operador * ou /
 	{
@@ -371,7 +371,7 @@ void fator()
 		erro(13); // Falta identificador, número ou (expressão)
 }
 
-void operador-rel()
+void operador_rel()
 {
 	if (token == 5) // operador de comparação
 		proximo_token();
